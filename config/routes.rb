@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users do
     # resources :booking, only: %i[create new]
-    resources :user_ratings, only: %i[create new]
+    resources :user_ratings, only: %i[create new show index]
   end
   resources :booking, only: [:destroy]
   resources :user_ratings, only: %i[destroy]
@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 
   resources :games do
     resources :booking, only: %i[create new]
-    resources :user_games, only: %i[create new]
+    resources :user_games, only: %i[create new show index]
   end
 end
