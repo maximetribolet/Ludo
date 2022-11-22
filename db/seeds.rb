@@ -5,3 +5,32 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require "json"
+require "open-uri"
+
+puts "starting"
+
+Game.destroy_all
+
+  url = "https://api.boardgameatlas.com/api/search?client_id=axXecQ9kV6&limit=100"
+
+  url_open = URI.open(url).read
+  response = JSON.parse(url_open)
+
+  response["games"].each do |game|
+    title = game["name"]
+    editor = game["overview"]
+    category = game["poster_path"]
+    year = game["year_published"]
+    min_players = game["min_players"]
+    max_players = game["max_players"]
+    playtime = game["min_playtime"]
+    image_url = game["image_url"]
+    average_rating = game["average_user_rating"]
+    description = game["description_preview"]
+
+    p @game = Game.create!(title: title, editor: editor, category: category, year: year, min_players: min_players, max_players: max_players, playtime: playtime, image_url: image_url, average_rating: average_rating, description: description)
+  end
+
+puts "Done"
