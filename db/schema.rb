@@ -26,4 +26,69 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_160557) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-end
+  create_table "bookings", force: :cascade do |t|
+    t.string "status"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.bigint "user_id", null: false
+    t.bigint "user_game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_game_id"], name: "index_bookings_on_user_game_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "game_ratings", force: :cascade do |t|
+    t.string "comment"
+    t.float "rating"
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_game_ratings_on_game_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.string "editor"
+    t.string "category"
+    t.integer "year"
+    t.integer "min_players"
+    t.integer "max_players"
+    t.integer "playtime"
+    t.string "image_url"
+    t.float "average_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_games", force: :cascade do |t|
+    t.boolean "availibility"
+    t.integer "renting_price"
+    t.integer "renting_deposit"
+    t.bigint "game_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_user_games_on_game_id"
+    t.index ["user_id"], name: "index_user_games_on_user_id"
+  end
+
+  create_table "user_ratings", force: :cascade do |t|
+    t.string "comment"
+    t.float "rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_ratings_on_user_id"
+  end
+
+  add_foreign_key "bookings", "user_games"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "game_ratings", "games"
+  add_foreign_key "user_games", "games"
+  add_foreign_key "user_games", "users"
+  add_foreign_key "user_ratings", "users"
+  
+  end
+  
+
