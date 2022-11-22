@@ -13,7 +13,7 @@ puts "starting"
 
 Game.destroy_all
 
-  url = "https://api.boardgameatlas.com/api/search?client_id=axXecQ9kV6&limit=100"
+  url = "https://api.boardgameatlas.com/api/search?client_id=9cu2Exy2kH&limit=100"
 
   url_open = URI.open(url).read
   response = JSON.parse(url_open)
