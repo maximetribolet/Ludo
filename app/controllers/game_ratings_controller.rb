@@ -1,5 +1,4 @@
 class GameRatingsController < ApplicationController
-
   def index
     @game_ratings = GameRating.all
   end
