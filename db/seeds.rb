@@ -20,7 +20,7 @@ Game.destroy_all
 
   response["games"].each do |game|
     title = game["name"]
-    editor = game["overview"]
+    editor = game["primary_publisher"]
     category = game["poster_path"]
     year = game["year_published"]
     min_players = game["min_players"]
@@ -28,7 +28,7 @@ Game.destroy_all
     playtime = game["min_playtime"]
     image_url = game["image_url"]
     average_rating = game["average_user_rating"]
-    description = game["description_preview"]
+    description = game["description"]
 
     p @game = Game.create!(title: title, editor: editor, category: category, year: year, min_players: min_players, max_players: max_players, playtime: playtime, image_url: image_url, average_rating: average_rating, description: description)
   end
