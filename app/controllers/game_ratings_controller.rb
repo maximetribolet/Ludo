@@ -5,13 +5,13 @@ class GameRatingsController < ApplicationController
   end
 
   def show
-    @game_rating = GameRating.find(game_id.params[:id])
+    @game_rating = GameRating.find(game_id.params[@user_id])
   end
 
   private
 
   def set_game_rating
-    @game_rating = GameRating.find(params[:id])
+    @game_rating = GameRating.find(params[@user_id])
   end
 
   def game_rating_params
