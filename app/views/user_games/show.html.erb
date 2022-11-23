@@ -1,0 +1,16 @@
+<h1><%= @user_game.title %></h1>
+<ul>
+  <% @user_game.games.each do |game| %>
+    <li><%= game.title %></li>
+    <p><%= game.description %></p>
+
+    <%# <%= image_tag "https://image.tmdb.org/t/p/original#{bookmark.movie.poster_url}", class: 'movie-img rounded-top', width: 400, crop: :fill%>
+
+    <%# <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete} %> %>
+    <% end %>
+</ul>
+
+
+<%= link_to "Add a game to this list", new_list_bookmark_path(@list) %>
+<br>
+

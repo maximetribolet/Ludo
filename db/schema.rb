@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_103314) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_140924) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,8 +37,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_103314) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
-    t.string "editor"
-    t.string "category"
     t.integer "year"
     t.integer "min_players"
     t.integer "max_players"
@@ -47,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_103314) do
     t.float "average_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "user_games", force: :cascade do |t|
@@ -57,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_103314) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["game_id"], name: "index_user_games_on_game_id"
     t.index ["user_id"], name: "index_user_games_on_user_id"
   end
