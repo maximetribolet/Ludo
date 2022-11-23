@@ -1,23 +1,11 @@
 class GamesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
     @games = Game.all
   end
 
   def show
     @game = Game.find(params[:id])
-  end
-
-  def new
-    @game = Game.new
-  end
-
-  def create
-    @game = Game.new
-    if @game.save
-      redirect_to games_path, notice: "Game succesfully created"
-    else
-      render :new, status: :unprocessable_entity
-    end
   end
 
   def destroy
