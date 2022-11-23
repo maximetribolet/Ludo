@@ -1,0 +1,8 @@
+<h1>User Ratings</h1>
+
+<p><% @user_ratings.each do |l| %>
+<%= l.user_id %>
+<%= l.comment %>
+<%= l.rating %>
+
+<% end %>

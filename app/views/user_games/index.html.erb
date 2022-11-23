@@ -14,3 +14,15 @@
     <% end %>
   </div>
 </div>
+
+
+<h1>User Games</h1>
+
+<p><% @user_games.each do |l| %>
+<%= l.user_game_id %>
+<%= l.availibility %>
+<%= l.renting_price %>
+<%= l.renting_deposit %>
+<button class="btn btn-primary"> <%= link_to "delete user game", user_game_path(@user_game),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+<% end %>
