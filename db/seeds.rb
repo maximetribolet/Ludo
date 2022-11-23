@@ -32,3 +32,15 @@ Game.destroy_all
   end
 
 puts "Done"
+
+100.times do
+  User.create(first_name: Faker::Artist.name,
+              last_name: Faker::Name.name,
+              address: Faker::Address.full_address,
+              phone_number: Faker::PhoneNumber.phone_number,
+              rating: rand(0..10),
+              plz: Faker::Address.zip,
+              email: Faker::Internet.email,
+              encrypted_password: Faker::Invoice.reference)
+  print "User created"
+end

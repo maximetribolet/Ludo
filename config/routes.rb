@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users do
     # resources :booking, only: %i[create new]
     resources :user_ratings, only: %i[create new show index]
+    resources :booking, only: %i[show index]
   end
   resources :booking, only: [:destroy]
   resources :user_ratings, only: %i[destroy]

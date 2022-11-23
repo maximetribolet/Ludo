@@ -1,0 +1,10 @@
+<h1>User Games</h1>
+
+<p><% @user_games.each do |l| %>
+<%= l.user_game_id %>
+<%= l.availibility %>
+<%= l.renting_price %>
+<%= l.renting_deposit %>
+
+
+<% end %>

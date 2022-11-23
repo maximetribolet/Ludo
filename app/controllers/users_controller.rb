@@ -1,4 +1,4 @@
-# class UsersController < ApplicationController
+class UsersController < ApplicationController
 #   before_action :set_user, only[:destroy]
 
 #   def index
@@ -39,4 +39,4 @@
 #   def user_params
 #     params.require(:user).permit(:first_name, :last_name, :adress, :email, :payment_method, :phone_number, :language, :rating, :plz)
 #   end
-# end
+end
