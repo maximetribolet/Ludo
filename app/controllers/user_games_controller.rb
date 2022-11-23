@@ -1,6 +1,22 @@
 class UserGamesController < ApplicationController
+  before_action :set_list, only: [:show, :destroy]
+
   def index
     @user_games = UserGame.all
+  end
+
+  def new
+    @game = Game.find(params[:game_id])
+    @user_game = UserGame.new
+  end
+
+  def create
+    @user_game = UserGame.new(user_game_params)
+    if @user_game.save
+      redirect_to new_game_user_game_path(@user_game)
+    else
+      render :new
+    end
   end
 
   def show
