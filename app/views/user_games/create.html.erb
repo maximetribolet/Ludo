@@ -1,0 +1,7 @@
+<h1>Create a users game</h1>
+<%= simple_form_for @user_games do |f| %>
+  <%= f.input :availibility %>
+  <%= f.input :renting_price %>
+  <%= f.input :renting_deposit %>
+  <%= f.button :submit %>
+<% end %>

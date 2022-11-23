@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   end
   resources :booking, only: [:destroy]
   resources :user_ratings, only: %i[destroy]
+
   resources :user_games, only: [:destroy, :create, :new, :show]
+=======
+  resources :user_games, only: [:destroy]
+  resources :game_ratings
+
 
   resources :games do
     resources :booking, only: %i[create new]

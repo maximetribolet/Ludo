@@ -1,0 +1,10 @@
+<h1>Game Ratings</h1>
+
+<p><% @game_ratings.each do |l| %>
+<%= l.comment %>
+<%= l.rating %>
+<button class="btn btn-primary"> <%= link_to "delete rating", game_rating_path(:id),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+<% end %>
+
+<button class="btn btn-primary">  <%= link_to "All game ratings", game_ratings_index_path(:id) %>

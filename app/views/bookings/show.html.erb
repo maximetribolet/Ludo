@@ -7,6 +7,8 @@
 <%= l.start_date %>
 <%= l.end_date %>
 <%= l.user_id %>
+<button class="btn btn-primary"> <%= link_to "delete booking", booking_path(@booking),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
 <% end %>
 
 <button class="btn btn-primary">  <%= link_to "All bookings", user_booking_index_path(:id) %>
