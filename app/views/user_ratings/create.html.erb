@@ -1,0 +1,6 @@
+<h1>Create a rating</h1>
+<%= simple_form_for @user_ratings do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.button :submit %>
+<% end %>
