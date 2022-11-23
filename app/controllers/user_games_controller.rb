@@ -1,8 +1,6 @@
 class UserGamesController < ApplicationController
   before_action :set_list, only: [:show, :destroy]
 
-  @user_game = UserGame
-
   def index
     @user_games = UserGame.all
   end
