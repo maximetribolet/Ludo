@@ -59,6 +59,12 @@ group :development, :test do
 
 end
 
+# Geocoder
+gem "geocoder"
+
+# Simple Form
+gem "simple_form", github: "heartcombo/simple_form"
+
   #Fakergem
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 
