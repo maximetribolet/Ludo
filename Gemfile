@@ -76,3 +76,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Geocoder
+gem "geocoder"
+
+# Simple Form
+gem "simple_form", github: "heartcombo/simple_form"
