@@ -1,0 +1,13 @@
+<h1>Games</h1>
+
+<p><% @games.each do |l| %>
+<%= l.title %>
+<%= l.year %>
+<%= l.min_player %>
+<%= l.max_player %>
+<%= l.playtime %>
+<%= l.image_url %>
+<%= l.average_rating %>
+<%= l.description %>
+
+<% end %>

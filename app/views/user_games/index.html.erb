@@ -1,3 +1,4 @@
+
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">My Lists</h3>
@@ -14,3 +15,14 @@
     <% end %>
   </div>
 </div>
+
+<h1>User Games</h1>
+
+<p><% @user_games.each do |l| %>
+<%= l.user_game_id %>
+<%= l.availibility %>
+<%= l.renting_price %>
+<%= l.renting_deposit %>
+
+
+<% end %>
