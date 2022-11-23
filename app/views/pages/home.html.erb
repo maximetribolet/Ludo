@@ -1,19 +1,30 @@
-<h1>Ludo</h1>
-<p>Rent games fast and easy in sour area!</p>
-<div class="lender-container d-flex justify-content-center align-items-center flex-row flex-column">
+<div class="d-flex justify-content-center align-items-center" style="background-image: url(<%= image_url "monop.png" %>); height: 50vh; background-size: cover;background-position: center;opacity-50">
+  <div class="lend-info">
+    <h1 class="lend-main-heading"> Want to lend a boardgame in your area? </h1>
+    <h2 class="lend-sub-heading">Find available games: </h2>
 
- <h1> Want to lend a boardgame in your area? </h1>
-  <h2>Just type in your area code to find available games near you. </h2>
-
-      <label for="plz">Plz:
+    <label for="plz">Area code:
     <input type="plz" name="plz" id="plz">
 
-  <input type="submit" name="Sign up">
-</form>
+    <input type="submit" name="Sign up">
+  </div>
 </div>
-<div class="renting-container d-flex justify-content-center align-items-center flex-row flex-column">
- <h1> You want to lend out your games? </h1>
- <a href="..." class="btn btn-primary">Register here</a>
+
+<div class="d-flex flex-column justify-content-evenly" style="height: 40vh; background-color: #0091EA">
+
+  <div class="lender-container d-flex justify-content-center align-items-center flex-row flex-column">
+
+  <div class="renting-container d-flex justify-content-center align-items-center flex-row flex-column" >
+    <h1 class="rent-main-heading"> You want to rent out your games? </h1>
+    <a href="..." class="btn btn-primary" style="background-color: #F27B21">Register here</a>
+  </div>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 </div>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+
+<div class="footer d-flex justify-content-center align-items-center flex-row">
+  <a href="..." class="About mx-2">About</a>
+  <a href="..." class="Pricing mx-2">Pricing</a>
+  <a href="..." class="Team mx-2">Team</a>
+  <a href="..." class="btn btn-primary mx-2" style="background-color: #08A355">Contact us</a>
+</div>
