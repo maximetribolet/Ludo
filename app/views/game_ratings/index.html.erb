@@ -1,0 +1,8 @@
+<h1>Games ratings</h1>
+
+<p><% @games_ratings.each do |l| %>
+<%= l.game_id %>
+<%= l.comment %>
+<%= l.rating %>
+<%= l.description %>
+<% end %>
