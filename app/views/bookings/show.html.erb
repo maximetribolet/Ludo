@@ -1,14 +1,24 @@
 <h1>Booking</h1>
+  <p>
+    <strong>Game:</strong>
+    <%= @booking.user_game_id %>
+  </p>
 
-<p><% @booking.each do |l| %>
-<%= l.user_game_id %>
-<%= l.user_id %>
-<%= l.status %>
-<%= l.start_date %>
-<%= l.end_date %>
-<%= l.user_id %>
-<button class="btn btn-primary"> <%= link_to "delete booking", booking_path(@booking),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-<% end %>
+  <p>
+    <strong>Status:</strong>
+    <%= @booking.status %>
+  </p>
 
-<button class="btn btn-primary">  <%= link_to "All bookings", user_booking_index_path(:id) %>
+  <p>
+    <strong>Start Date</strong>
+    <%= @booking.start_date %>
+  </p>
+  <p>
+    <strong>End Date</strong>
+    <%= @booking.end_date %>
+  </p>
+
+  <p>
+    <strong>User</strong>
+    <%= @booking.user_id %>
+  </p>

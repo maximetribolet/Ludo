@@ -3,12 +3,13 @@
 <p><% @games.each do |l| %>
 <%= l.title %>
 <%= l.year %>
-<%= l.min_player %>
-<%= l.max_player %>
+<%= l.min_players %>
+<%= l.max_players %>
 <%= l.playtime %>
 <%= l.image_url %>
 <%= l.average_rating %>
 <%= l.description %>
-<button class="btn btn-primary"> <%= link_to "delete game", game_path(@game),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
 <% end %>
+
+<button class="btn btn-danger"> <%= link_to "delete game", game_path(:id),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>

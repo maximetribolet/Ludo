@@ -1,12 +1,15 @@
-<h1>User Ratings</h1>
+<h1>Game</h1>
+  <p>
+    <strong>User:</strong>
+    <%= @user_ratings.user_id %>
+  </p>
 
-<p><% @user_rating.each do |l| %>
-<%= l.user_id %>
-<%= l.comment %>
-<%= l.rating %>
+  <p>
+    <strong>comment:</strong>
+    <%= @user_ratings.comment %>
+  </p>
 
-<% end %>
-
-<button class="btn btn-primary">  <%= link_to "New booking", new_game_booking_path(:game_id) %>
-<button class="btn btn-primary">  <%= link_to "Delete booking", booking_path(:id) %>
-<button class="btn btn-primary">  <%= link_to "All bookings", user_booking_index_path(:id) %>
+  <p>
+    <strong>Rating</strong>
+    <%= @user_ratings.rating %>
+  </p>
