@@ -5,6 +5,6 @@
 <%= l.availibility %>
 <%= l.renting_price %>
 <%= l.renting_deposit %>
-
-
+<button class="btn btn-primary"> <%= link_to "delete user game", user_game_path(@user_game),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
 <% end %>
