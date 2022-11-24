@@ -3,6 +3,7 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
         <h3>Pick Up a game</h3>
+        <p>that you would like to lend</p>
         <%= simple_form_for @user_game do |f| %>
           <%= f.association :game, placeholder: 'Your game list title' %>
           <%= f.input :renting_price %>

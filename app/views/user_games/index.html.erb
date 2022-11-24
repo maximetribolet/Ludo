@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-sm-8">
       <div id="user_games">
-        <%= form_with url: games_path, method: :get, class: "d-flex" do %>
+        <%= form_with url: user_games_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -10,7 +10,6 @@
           %>
             <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
-        <%= Game.search_by_title_and_description(params[:query]) %>
       </div>
     </div>
   </div>
@@ -20,28 +19,35 @@
   <button class="btn btn-primary" style="float: right; background-color: #F27B21">Create a game list</button>
 <% end %>
 
-<h3 class="">My Lists</h3>
+<h3 class="d-flex justify-content-around" >My Lists</h3>
 
-  <% @user_games.each do |l| %>
-  <div class="card-product" style="margin: 30px">
-  <img src="<%= "#{l.game.image_url}" %>" />
-  <div class="card-product-infos">
-    <%= l.game.title %></li>
-    <li><%= l.game.year %></li>
-    <li><%= l.game.min_players %></li>
-    <li><%= l.game.max_players %></li>
-    <li><%= l.game.playtime %></li>
-    <%# <li><%= l.game.description %>
+<div class="container">
+  <div class="row">
+
+    <% @user_games.each do |l| %>
+      <div class="col-6">
+        <div class="card-product" style="width: 60vh; margin: 30px">
+          <%= link_to user_game_path(l) do  %>
+            <img src="<%= "#{l.game.image_url}" %>" />
+          <% end %>
+          <div class="card-product-infos d-flex justify-content-between" style="margin: 5px">
+            <div>
+              <%= l.game.title %>
+              <p>Min Players</p>
+              <%= l.game.min_players %>
+              <p>Max Players</p>
+              <%= l.game.max_players %>
+            </div>
+            <div style="margin-left: 8px">
+              <p>Playtime</p>
+              <%= l.game.playtime %>
+              <%# <li><%= l.game.description %>
+              <%= button_to "delete offer", user_game_path(l), method: :delete %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
   </div>
 </div>
-  <% end %>
-<h1>BUTTON HERE</h1>
-
-
-  </div>
-</div>
-
-
-
-
-<h1>User Games</h1>
