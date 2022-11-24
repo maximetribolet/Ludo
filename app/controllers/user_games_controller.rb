@@ -3,10 +3,15 @@ class UserGamesController < ApplicationController
 
   def index
     if params[:query].present?
-      @user_games = UserGame.global_search(params[:query])
+      @user_games = UserGame.global_search(params[:query]).where.not(user_id: current_user)
+
     else
-      @user_games = UserGame.all
+      @user_games = UserGame.where.not(user_id: current_user)
     end
+  end
+
+  def mine
+    @user_games = UserGame.where(user_id: current_user)
   end
 
   def new
