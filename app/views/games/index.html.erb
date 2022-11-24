@@ -1,14 +1,17 @@
+
 <h1>Games</h1>
 
 <p><% @games.each do |l| %>
-<%= l.title %>
-<%= l.year %>
-<%= l.min_player %>
-<%= l.max_player %>
-<%= l.playtime %>
-<%= l.image_url %>
-<%= l.average_rating %>
-<%= l.description %>
-<button class="btn btn-primary"> <%= link_to "delete game", game_path(@game),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+<div class="card row justify-content-center" style="">
+  <ul>
+    <div class="card" style="justify-content-center width: 450px; height: 350px;"><%= image_tag "#{l.image_url}" %></div>
+    <li><%= l.title %></li>
+    <li><%= l.year %></li>
+    <li><%= l.min_players %></li>
+    <li><%= l.max_players %></li>
+    <li><%= l.playtime %></li>
+    <li><%= l.description %></li>
+  </ul>
+</div>
 <% end %>
+<%# <%= button_to "Add game to My List", new_user_game_path(@user_game[:id]) %> %>

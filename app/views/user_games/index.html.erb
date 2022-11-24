@@ -1,28 +1,38 @@
-<div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Lists</h3>
-    <%= link_to 'Create a game list', new_game_user_game_path, class: 'btn btn-dangerous btn-rounded' %>
-  </div>
-  <div class="row">
-    <% @user_games.each do |user_game| %>
-      <div class="co-12 colsm-6 col-md-4">
-        <%= link_to  game_user_games_path(list), class:'text-decoration-none' do %>
-            <li><%= user_game.title %> <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, game_user_games_path(user_game), data: {turbo_method: :delete} %></li>
-          </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="user_games">
+        <%= form_with url: games_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a game"
+          %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
       </div>
-    <% end %>
+    </div>
+  </div>
+</div>
+<%= link_to '/user_games/new', remote: true do %>
+  <button class="btn btn-primary" style="float: right; background-color: #F27B21">Create a game list</button>
+<% end %>
+<h3 class="">My Lists</h3>
+  <% @user_games.each do |l| %>
+  <ul>
+    <div class="card" style="width: 200px; height: 100px;"><%= image_tag "#{l.game.image_url}" %></div>
+    <li><%= l.game.title %></li>
+    <li><%= l.game.year %></li>
+    <li><%= l.game.min_players %></li>
+    <li><%= l.game.max_players %></li>
+    <li><%= l.game.playtime %></li>
+    <li><%= l.game.description %></li>
+  <% end %>
+  </ul>
+<h1>BUTTON HERE</h1>
+
   </div>
 </div>
 
 
 <h1>User Games</h1>
-
-<p><% @user_games.each do |l| %>
-<%= l.user_game_id %>
-<%= l.availibility %>
-<%= l.renting_price %>
-<%= l.renting_deposit %>
-<button class="btn btn-primary"> <%= link_to "delete user game", user_game_path(@user_game),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-<% end %>
