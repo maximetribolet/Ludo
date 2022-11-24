@@ -1,16 +1,16 @@
-<h1><%= @user_game.title %></h1>
-<ul>
-  <% @user_game.games.each do |game| %>
-    <li><%= game.title %></li>
-    <p><%= game.description %></p>
 
-    <%# <%= image_tag "https://image.tmdb.org/t/p/original#{bookmark.movie.poster_url}", class: 'movie-img rounded-top', width: 400, crop: :fill%>
-
-    <%# <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete} %> %>
-    <% end %>
-</ul>
-
-
-<%= link_to "Add a game to this list", new_list_bookmark_path(@list) %>
-<br>
-
+<div class="card" style="width: 400px; height: 400px;">
+  <ul>
+  <p>URL IMAGE</p>
+  <li><strong>Game Title</strong>
+  <p><%= @user_game.game.title %></p></li>
+  <li><strong>Year</strong>
+  <p><%= @user_game.game.year %></p></li>
+  <li><strong>Minimun Players</strong>
+  <p><%= @user_game.game.year %></p></li>
+  <li><strong>Max Players</strong>
+  <p><%= @user_game.game.max_players %></p></li>
+  <li><strong>Playtime</strong>
+  <p><%= @user_game.game.playtime %></p></li>
+  </ul>
+</div>
