@@ -8,8 +8,8 @@ class PagesController < ApplicationController
   # end
 
   def dashboard
-    @bookings = Booking.find(current_user.id)
-    @user_game = UserGame.find(current_user.id)
+    @bookings = Booking.where(user_id: current_user)
+    # @user_game = UserGame.find(current_user.id)
   end
 
   # def dashboard
