@@ -1,5 +1,24 @@
 class BookingsController < ApplicationController
 
+  def new
+    @booking = Booking.new
+    @user_game = UserGame.find(params[:user_game_id])
+  end
+
+  def create
+    @booking = Booking.new(booking_params)
+    @user_game = UserGame.find(params[:user_game_id])
+    @booking.user = current_user
+    @booking.user_game = @user_game
+    @booking.status = "pending"
+
+    if @booking.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -9,27 +28,9 @@ class BookingsController < ApplicationController
     redirect_to root_path, notice: "Booking request canceled"
   end
 
-  def new
-    @booking = Booking.new
-  end
-
-  def create
-    @booking = Booking.new
-    @booking.user = current_user
-    if booking.save
-      redirect_to game_booking_index_path
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
   private
 
-  def set_user
-    @booking = Booking.find(params[:id])
-  end
-
-  def user_params
-    params.require(:booking).permit(:status, :start_date, :end_date, :user_id, :user_game_id)
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

@@ -1,5 +1,5 @@
-<%= simple_form_for @booking do |f| %>
-  <%= f.date :start_date %>
-  <%= f.date :end_date %>
-  <%= f.button :submit %>
+<%= simple_form_for [user_game, booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit :submit %>
 <% end %>
