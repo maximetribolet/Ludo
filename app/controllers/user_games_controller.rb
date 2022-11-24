@@ -6,13 +6,13 @@ class UserGamesController < ApplicationController
   end
 
   def new
-    # @game = Game.find(params[:game_id])
     @user_game = UserGame.new
   end
 
   def create
     @user_game = UserGame.new(user_games_params)
     @user_game.user = current_user
+    @user_game.availibility = true
 
     if @user_game.save
       redirect_to user_game_path(@user_game)
@@ -36,6 +36,6 @@ class UserGamesController < ApplicationController
   end
 
   def user_games_params
-    params.require(:user_game).permit(:availibility, :renting_price, :renting_deposit, :game_id, :user_id)
+    params.require(:user_game).permit(:renting_price, :renting_deposit, :game_id)
   end
 end
