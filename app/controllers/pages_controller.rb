@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @bookings = Booking.find(current_user.id)
+    @user_game = UserGame.find(current_user.id)
   end
 
   # def dashboard
