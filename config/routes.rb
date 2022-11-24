@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   resources :user_ratings, only: %i[destroy]
 
   resources :user_games, only: [:destroy, :create, :new, :show]
-=======
   resources :user_games, only: [:destroy]
+  
   resources :game_ratings
 
 
