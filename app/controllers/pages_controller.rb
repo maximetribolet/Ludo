@@ -3,11 +3,15 @@ class PagesController < ApplicationController
   def home
   end
 
-  def Library
-    @user_game = user_game.find(curre)
-  end
+  # def library
+  #   @user_game = UserGame.find(current_user.id)
+  # end
 
   def dashboard
-    @bookings = current_user.bookings
+    @bookings = Booking.find(current_user.id)
   end
+
+  # def dashboard
+  #   @bookings = current_user.bookings
+  # end
 end
