@@ -10,29 +10,38 @@
           %>
             <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
+        <%= Game.search_by_title_and_description(params[:query]) %>
       </div>
     </div>
   </div>
 </div>
+
 <%= link_to '/user_games/new', remote: true do %>
   <button class="btn btn-primary" style="float: right; background-color: #F27B21">Create a game list</button>
 <% end %>
+
 <h3 class="">My Lists</h3>
+
   <% @user_games.each do |l| %>
-  <ul>
-    <div class="card" style="width: 200px; height: 100px;"><%= image_tag "#{l.game.image_url}" %></div>
-    <li><%= l.game.title %></li>
+  <div class="card-product" style="margin: 30px">
+  <img src="<%= "#{l.game.image_url}" %>" />
+  <div class="card-product-infos">
+    <%= l.game.title %></li>
     <li><%= l.game.year %></li>
     <li><%= l.game.min_players %></li>
     <li><%= l.game.max_players %></li>
     <li><%= l.game.playtime %></li>
-    <li><%= l.game.description %></li>
+    <%# <li><%= l.game.description %>
+  </div>
+</div>
   <% end %>
-  </ul>
 <h1>BUTTON HERE</h1>
+
 
   </div>
 </div>
+
+
 
 
 <h1>User Games</h1>
