@@ -2,7 +2,11 @@ class UserGamesController < ApplicationController
   before_action :set_user_game, only: [:show, :destroy]
 
   def index
-    @user_games = UserGame.all
+    if params[:query].present?
+      @user_games = UserGame.global_search(params[:query])
+    else
+      @user_games = UserGame.all
+    end
   end
 
   def new
@@ -25,8 +29,9 @@ class UserGamesController < ApplicationController
   end
 
   def destroy
-    @user_games = UserGame.destroy
-    redirect_to game_user_games_path(:user_id)
+    @user_game = UserGame.find(params[:id])
+    @user_game.destroy
+    redirect_to user_games_path
   end
 
   private
