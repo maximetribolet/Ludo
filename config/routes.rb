@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[destroy]
   resources :user_ratings, only: %i[destroy]
 
-  resources :user_games, only: [:destroy, :create, :new, :show] do
+  resources :user_games do
     resources :bookings, only: %i[create new]
   end
 
   resources :game_ratings
 
-  resources :games do
-    resources :user_games, only: %i[index]
+  resources :games
+
   end
 end
