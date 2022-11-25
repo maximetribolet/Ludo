@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[destroy update]
   resources :user_ratings, only: %i[destroy]
 
+  resources :user_games, only: [:destroy, :create, :new, :show]
+  resources :user_games, only: [:destroy]
+
   get "/my_games", to: "user_games#mine", as: :mine
 
   resources :user_games do
