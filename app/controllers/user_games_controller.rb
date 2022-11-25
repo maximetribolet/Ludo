@@ -24,7 +24,7 @@ class UserGamesController < ApplicationController
     @user_game.availibility = true
 
     if @user_game.save
-      redirect_to user_game_path(@user_game)
+      redirect_to mine_path(@user_game)
     else
       render :new
     end
