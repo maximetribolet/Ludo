@@ -43,9 +43,9 @@
               <%= l.game.playtime %>
               <%# <li><%= l.game.description %>
               <% if l.user == current_user %>
-                <%= link_to "Delete Game", user_game_path(l), method: :delete, class: "btn btn-danger"  %>
+                <%= button_to "Delete Game", user_game_path(l), method: :delete, class: "btn btn-danger"  %>
                 <% else %>
-              <%= link_to "Rent Game", new_user_game_booking_path(l.id), class: "btn btn-primary" %>
+              <%= button_to "Rent Game", new_user_game_booking_path(l.id), class: "btn btn-primary" %>
               <% end %>
             </div>
           </div>
