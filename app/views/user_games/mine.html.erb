@@ -16,17 +16,17 @@
 </div>
 
 <%= link_to '/user_games/new', remote: true do %>
-  <button class="btn btn-primary" style="float: right; background-color: #F27B21">Add a game to your List</button>
+  <button class="btn btn-primary" style="float: right; background-color: #F27B21; margin-right: 10px; margin-top: 10px;">Add a game to your List</button>
 <% end %>
 
-<h3 class="d-flex justify-content-around" >My Lists</h3>
+<h3 class="d-flex justify-content-around" style="margin-top: 10px;" >My Lists</h3>
 
 <div class="container">
   <div class="row">
 
     <% @user_games.each do |l| %>
       <div class="col-6">
-        <div class="card-product" style="margin: 15px">
+        <div class="card-product" style="margin: 15px; border-radius: 8px">
           <%= link_to user_game_path(l) do  %>
             <img src="<%= "#{l.game.image_url}" %>" />
           <% end %>
@@ -40,9 +40,9 @@
                 <h6>Renting price: $<%= l.renting_price %></h6>
               <%= "#{l.game.description.first(150)} (...)" %>
               <% if l.user == current_user %>
-                <%= button_to "Delete Game", user_game_path(l), method: :delete, class: "btn btn-danger"  %>
+                <%= button_to "Delete", user_game_path(l), method: :delete, class: "btn btn-danger", style: "border-radius: 8px; margin-top: 8px; margin-left: 235px;" %>
                 <% else %>
-              <%= button_to "Rent Game", new_user_game_booking_path(l.id), class: "btn btn-primary" %>
+              <%= button_to "Rent", new_user_game_booking_path(l.id), class: "btn btn-primary", style: "border-radius: 8px; margin-top: 8px; margin-left: 235px;" %>
               <% end %>
             </div>
           </div>
