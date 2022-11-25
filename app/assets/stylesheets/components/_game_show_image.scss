@@ -1,4 +1,4 @@
-.show_user_game_card img {
+.game_card_list img {
   height: 100%;
   width: 400px;
   object-fit: cover;
@@ -6,4 +6,5 @@
 
 .game_card_list {
   text-align: center;
+  list-style-type: none;
 }
