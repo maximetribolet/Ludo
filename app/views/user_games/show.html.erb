@@ -1,9 +1,8 @@
 
-<div class="card" style="width: 400px; height: 400px;">
-  <ul>
-  <p>URL IMAGE</p>
-  <li><strong>Game Title</strong>
-  <p><%= @user_game.game.title %></p></li>
+<div class="show_user_game_card" style="width: 1000px; height: 1000px;"  >
+  <ul class="game_card_list">
+ <img src="<%= "#{@user_game.game.image_url}" %>" />
+  <p><strong><%= @user_game.game.title %></p></strong></li>
   <li><strong>Year</strong>
   <p><%= @user_game.game.year %></p></li>
   <li><strong>Minimun Players</strong>
@@ -12,5 +11,6 @@
   <p><%= @user_game.game.max_players %></p></li>
   <li><strong>Playtime</strong>
   <p><%= @user_game.game.playtime %></p></li>
+
   </ul>
 </div>
