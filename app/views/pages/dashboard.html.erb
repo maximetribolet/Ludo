@@ -1,22 +1,26 @@
 <h1> Bookings </h1>
-
-<div>
-  <% @bookings.each do |booking|  %>
-  <div class="card-trip" style="width: fit-content;">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-trip-infos">
-      <div>
-        <%= Game.find(booking.user_game.id).title %>
-        <p><%= booking.start_date %></p>
-        <p><%= booking.end_date %></p>
-        <%= booking.status %>
-        <%# <% raise %> %>
+<div class="container" style="">
+  <div class="row d flex justify-content-between", style="">
+    <% @bookings.each do |booking|  %>
+    <div class="card-trip" style="width: 350px; margin: 30px;
+margin-top: 30px;">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <%= Game.find(booking.user_game.id).title %>
+          <p><%= booking.start_date %></p>
+          <p><%= booking.end_date %></p>
+          <p><strong><%= booking.status %></strong></p>
+        </div>
+        <h2 class="card-trip-pricing"><p> </p></h2>
+        <%= button_to "Accept", booking_path(booking, status: "accept"), method: :patch %>
+        <%= button_to "Decline", booking_path(booking, status: "decline"), method: :patch %>
+        <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
       </div>
-      <h2 class="card-trip-pricing"><p> </p></h2>
-      <%= button_to "Accept", booking_path(booking, status: "accept"), method: :patch %>
-      <%= button_to "Decline", booking_path(booking, status: "decline"), method: :patch %>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
+
+
+<%# <img src="<%= "#{@booking.user_game.image_url}" %>
