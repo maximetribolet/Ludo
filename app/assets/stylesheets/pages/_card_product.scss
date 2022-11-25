@@ -1,15 +1,16 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 250px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  padding: 16px;
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 140px;
   object-fit: cover;
 }
 
@@ -27,6 +28,5 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
-}
+// .card-product .card-product-infos {
+// }

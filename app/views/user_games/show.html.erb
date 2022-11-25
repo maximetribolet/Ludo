@@ -1,23 +1,27 @@
 <div class="container">
   <div class="container row flex-row">
     <div class="card-category col-10 p-2 border-bottom sh bg-body rounded ">
-    <ul class="game_card_list">
-      <img src="<%= "#{@user_game.game.image_url}" %>" />
-        <p class= "title"><strong><%= @user_game.game.title %></p></strong></li>
-        <li><strong>Year</strong>
-        <p><%= @user_game.game.year %></p></li>
-        <li><strong>Minimum Players</strong>
-        <p><%= @user_game.game.year %></p></li>
-        <li><strong>Maximum Players</strong>
-        <p><%= @user_game.game.max_players %></p></li>
-        <li><strong>Playtime</strong>
-        <p><%= @user_game.game.playtime %> mins</p></li>
-          <li><strong>description</strong>
-        <p><%= @user_game.game.description %></p></li>
+      <ul class="game_card justify-content-center align-items-center flex-row">
+        <img src="<%= "#{@user_game.game.image_url}" %>" />
+          <p class= "title"><strong><%= @user_game.game.title %></p></strong></li>
+          <li><strong>Year</strong>
+          <p><%= @user_game.game.year %></p></li>
+          <li><strong>Minimum Players</strong>
+          <p><%= @user_game.game.year %></p></li>
+          <li><strong>Maximum Players</strong>
+          <p><%= @user_game.game.max_players %></p></li>
+          <li><strong>Playtime</strong>
+          <p><%= @user_game.game.playtime %> mins</p></li>
+            <li><strong>description</strong>
+          <p><%= @user_game.game.description %></p></li>
         </ul>
       <div class ="">
         <div class="d-flex justify-content-between" style="margin-right:-491px;">
-          <%# <p> <%= @user_game.users.address %> </strong> <i class="fa-solid fa-location-dot"> </i><strong></p> %>
-          <strong><%= @user_game.renting_price %> €</strong></p>
+          <p> <%= @user_game.user.address %> </strong> <i class="fa-solid fa-location-dot"> </i><strong></p>
+          <strong> Renting price: <%= @user_game.renting_price %> €</strong></p>
         </div>
+        <%= button_to "Rent Game", new_user_game_booking_path(@user_game.id) %>
       </div>
+    </div>
+  </div>
+</div>

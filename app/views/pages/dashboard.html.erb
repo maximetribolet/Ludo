@@ -1,4 +1,5 @@
-<h1 style="text-align: center; margin: 10px;"> Bookings </h1>
+
+<h1 style="text-align: center; margin: 30px; text-shadow: 1px 1px 1px #bbb, 2px 2px 1px #220c0c;"> Bookings </h1>
 <div class="container" style="">
   <div class="row d flex justify-content-between", style="">
     <% @bookings.each do |booking|  %>
@@ -8,6 +9,7 @@ margin-top: 30px;">
       <div class="card-trip-infos">
         <div>
           <h5 style="text-align: center;"><%= Game.find(booking.user_game.id).title %></h5>
+
           <p><strong>Starting Date</strong></p>
           <p><%= booking.start_date %></p>
           <p><strong>Ending Date</strong></p>
