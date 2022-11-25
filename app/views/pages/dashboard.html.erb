@@ -1,13 +1,15 @@
+
 <h1 style="text-align: center; margin: 30px; text-shadow: 1px 1px 1px #bbb, 2px 2px 1px #220c0c;"> Bookings </h1>
 <div class="container" style="">
   <div class="row d flex justify-content-between", style="">
     <% @bookings.each do |booking|  %>
     <div class="card-trip" style="width: 350px; margin: 30px;
 margin-top: 30px;">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <img src="<%= "#{booking.user_game.game.image_url}" %>" />
       <div class="card-trip-infos">
         <div>
-          <h5 style="text-align: end;"><%= Game.find(booking.user_game.id).title %></h5>
+          <h5 style="text-align: center;"><%= Game.find(booking.user_game.id).title %></h5>
+
           <p><strong>Starting Date</strong></p>
           <p><%= booking.start_date %></p>
           <p><strong>Ending Date</strong></p>
