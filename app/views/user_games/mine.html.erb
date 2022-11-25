@@ -26,22 +26,19 @@
 
     <% @user_games.each do |l| %>
       <div class="col-6">
-        <div class="card-product" style="width: 60vh; margin: 30px">
+        <div class="card-product" style="margin: 15px">
           <%= link_to user_game_path(l) do  %>
             <img src="<%= "#{l.game.image_url}" %>" />
           <% end %>
           <div class="card-product-infos d-flex justify-content-between" style="margin: 5px">
             <div>
-              <%= l.game.title %>
-              <p>Min Players</p>
-              <%= l.game.min_players %>
-              <p>Max Players</p>
-              <%= l.game.max_players %>
             </div>
             <div style="margin-left: 8px">
-              <p>Playtime</p>
-              <%= l.game.playtime %>
-              <%# <li><%= l.game.description %>
+              <h3><%= l.game.title %></h3>
+
+
+                <h6>Renting price: $<%= l.renting_price %></h6>
+              <%= "#{l.game.description.first(150)} (...)" %>
               <% if l.user == current_user %>
                 <%= button_to "Delete Game", user_game_path(l), method: :delete, class: "btn btn-danger"  %>
                 <% else %>

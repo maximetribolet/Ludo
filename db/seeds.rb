@@ -11,7 +11,9 @@ require "open-uri"
 
 puts "starting"
 
+User.destroy_all
 Game.destroy_all
+UserGame.destroy_all
 
   url = "https://api.boardgameatlas.com/api/search?client_id=9cu2Exy2kH&limit=100"
 
@@ -29,6 +31,8 @@ Game.destroy_all
     description = game["description"]
 
     p @game = Game.create!(title: title, year: year, min_players: min_players, max_players: max_players, playtime: playtime, image_url: image_url, average_rating: average_rating, description: description)
+    @game.description = @game.description.gsub('<p>', '').gsub('</p>', '').gsub('<br>', '').gsub('<br />', '').gsub('<em>', '').gsub('</em>', '').gsub('<strong>', '').gsub('</strong>', '')
+    @game.save!
   end
 
 puts "Done"
