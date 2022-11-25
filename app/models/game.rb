@@ -6,4 +6,5 @@ class Game < ApplicationRecord
   validates :playtime, presence: true
   validates :image_url, presence: true
   validates :average_rating, presence: true
+  has_many :user_games, dependent: :destroy
 end
